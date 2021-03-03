@@ -90,8 +90,11 @@ confirm m f = do
   when (init result == "Yes") f
 
 conf_quit = do
-  response <- runProcessWithInput "dmenu" ["-p", "Quit?"] "yes\nno\n"
-  when (init response == "yes") (io (exitWith ExitSuccess))
+  response <- runProcessWithInput "dmenu" ["-p", "what you wanna do?"] "Shut down\nRestart\n Exit XMonad"
+  when (init response == "Shut down") (io (exitWith ExitSuccess))
+  when (init response == "Restart") (spawn "sudo reboot")
+  when (init response == "Exit Xmonad") (spawn "sudo shutdown now")
+
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
