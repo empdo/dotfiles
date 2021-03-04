@@ -291,6 +291,7 @@ myEventHook = mempty
 myStartupHook = do
 	spawnOnce "nitrogen --restore &"
 	spawnOnce "picom --experimental-backends &"
+	spawnOnce "dunst &"
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
