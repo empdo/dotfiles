@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/emil/dev/dwm'
+let g:netrw_dirhist_9='/home/emil/dwm-6.2'
 let g:netrw_dirhist_8='/home/emil/.config/xmobarrc'
 let g:netrw_dirhist_7='/home/emil/.config/alacritty'
 let g:netrw_dirhist_6='/home/emil/Downloads/Things to move/.minecraft'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_4='/home/emil/dev/typeracer/js'
 let g:netrw_dirhist_3='/home/emil/dev/typeracer'
 let g:netrw_dirhist_2='/home/emil/dev/skit'
 let g:netrw_dirhist_1='/home/emil/dev/todo-websocket'
-let g:netrw_dirhist_0='/home/emil/dev/spotify-api/website'
-let g:netrw_dirhist_9='/etc/X11/xorg.conf.d'

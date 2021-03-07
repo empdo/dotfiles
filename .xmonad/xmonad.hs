@@ -7,42 +7,17 @@
 -- Normally, you'd only override those defaults you care about.
 --
 
-
---Base
 import XMonad
 import Data.Monoid
 import System.Exit
+
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-
---Actions
-import XMonad.Actions.Search
-import XMonad.Actions.NoBorders
-
---Hooks
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
-
---Layout
-import XMonad.Layout.Spacing
-import XMonad.Layout.NoBorders
-import XMonad.Layout.LayoutModifier
-
---Util
-import XMonad.Util.SpawnOnce
-import XMonad.Util.Run
-import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Util.Dmenu
-
---Controll
-import Control.Monad
-
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "alacritty"
+myTerminal      = "xterm"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -61,10 +36,7 @@ myBorderWidth   = 1
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
-myModMask       = mod4Mask
-
-windowCount :: X (Maybe String)
-windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+myModMask       = mod1Mask
 
 -- The default number of workspaces (virtual screens) and their names.
 -- By default we use numeric strings, but any string may be used as a
@@ -75,26 +47,12 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["sec","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#636363"
-myFocusedBorderColor = "#999999"
-
-
---Functions
-confirm :: String -> X () -> X ()
-confirm m f = do
-  result <- dmenu ["Yes"]
-  when (init result == "Yes") f
-
-conf_quit = do
-  response <- runProcessWithInput "dmenu" ["-p", "what you wanna do?"] "Shut down\nRestart\n Exit XMonad"
-  when (init response == "Shut down") (io (exitWith ExitSuccess))
-  when (init response == "Restart") (spawn "sudo reboot")
-  when (init response == "Exit Xmonad") (spawn "sudo shutdown now")
-
+myNormalBorderColor  = "#dddddd"
+myFocusedBorderColor = "#ff0000"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -165,7 +123,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), conf_quit)
+    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
@@ -223,14 +181,10 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-
-mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
-mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
-
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = mySpacing 6 $ Tall nmaster delta ratio
+     tiled   = Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -279,6 +233,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
+myLogHook = return ()
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -288,19 +243,22 @@ myEventHook = mempty
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = do
-	spawnOnce "nitrogen --restore &"
-	spawnOnce "picom --experimental-backends &"
-	spawnOnce "dunst &"
+myStartupHook = return ()
+
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = do
-  xmproc0 <- spawnPipe "xmobar -x 0 /home/emil/.config/xmobar/xmobarrc"
-  xmproc1 <- spawnPipe "xmobar -x 1 /home/emil/.config/xmobar/xmobarrc1"
-  xmonad $ docks def {
+main = xmonad defaults
+
+-- A structure containing your configuration settings, overriding
+-- fields in the default config. Any you don't override, will
+-- use the defaults defined in xmonad/XMonad/Config.hs
+--
+-- No need to modify this.
+--
+defaults = def {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -319,14 +277,7 @@ main = do
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = dynamicLogWithPP xmobarPP
-                               { ppOutput = hPutStrLn xmproc0 >> hPutStrLn xmproc1
-			        , ppCurrent = xmobarColor "#83B4AE" "" . wrap "[ " " ]" -- Current workspace in xmobar
-                               , ppVisible = xmobarColor "#5E8D87" ""                -- Visible but not current workspace
-                               , ppHidden = xmobarColor "#5E8D87" "" . wrap "*" ""   -- Hidden workspaces in xmobar
-                               , ppHiddenNoWindows = xmobarColor "#f7f7f7" ""        -- Hidden workspaces (no windows)
-                               , ppTitle = xmobarColor "#83B4AE" "" . shorten 60     -- Title of active window in xmobar
-                               },
+        logHook            = myLogHook,
         startupHook        = myStartupHook
     }
 
