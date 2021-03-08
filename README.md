@@ -23,7 +23,7 @@ $ config config --local status.showUntrackedFiles no
 ~~~
 
 
-Set the correct monitor in polybar/config
+Set the correct monitor in polybar/config,
 use this to get the correct name of monitor:
 ~~~ sh
 $ xrandr -q | grep " connected" | cut -d ' ' -f1
