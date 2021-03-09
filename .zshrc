@@ -7,6 +7,7 @@ export npm_config_prefix=~/.node_modules
 export PATH=$PATH:$HOME/.yarn/bin:/home/emil/.local/bin:$HOME/.gem/ruby/2.7.0/bin
 # Path to your oh-my-zsh installation.
 export ZSH="/home/emil/.oh-my-zsh"
+export EDITOR="nvim"
 # export THEOS="/opt/theos"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -122,7 +123,6 @@ alias make="/usr/bin/make -j24"
 alias pihubreplace="ssh pi@pihub -C '/home/pi/srv/replace.sh && exit'"
 alias pihub="ssh pi@pihub"
 alias git-complete-reset="~/.scripts/please_die_git.sh"
-alias vi="nvim"
 
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
