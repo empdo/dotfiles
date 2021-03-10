@@ -6,4 +6,3 @@ picom --experimental-backends &
 
 dunst &
 
-~/.scripts/start_polybar.sh &
