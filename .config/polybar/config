@@ -1,9 +1,9 @@
 [settings]
 
 [colors]
-background = #111015 
+background = #11101
 foreground = #c5c8c6
-line = #005cff
+line = #bbb
 border = #bbb
 accent = #434d5e
 accent2 = #637291
