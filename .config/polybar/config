@@ -1,0 +1,181 @@
+[settings]
+
+[colors]
+background = #111015 
+foreground = #c5c8c6
+line = #005cff
+border = #bbb
+accent = #434d5e
+accent2 = #637291
+selected = #81a2be
+focused = #6d7e9c
+
+black = #282a2e
+red = #0xa54242
+green = #0x8c9440
+yellow = #0xde935f
+blue = #0x5f819d
+magenta = #0x85678f
+cyan = #0x5e8d87
+white = #0x707880
+
+[global/wm]
+margin-top = 20
+margin-bottom = 20
+
+[bar/dp0]
+monitor = DP-2
+
+font-0 = "SaucePro Nerd Font:pixelsize=9#1"
+
+override-redirect = false
+
+width = 100%
+height = 21
+
+bottom = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 8
+padding-right = 8
+module-margin = 1
+
+modules-left = dwm 
+#modules-center = 
+modules-right = spotify date time
+
+[bar/dp1]
+monitor = HDMI-0
+
+font-0 = "SaucePro Nerd Font:pixelsize=9#1"
+
+override-redirect = false
+
+width = 100%
+height = 21
+
+bottom = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 8
+padding-right = 8
+module-margin = 1
+
+#modules-left = dwm 
+#modules-center = 
+modules-right = kernel #cpu mem
+
+#MODULES
+[module/dwm]
+type = internal/dwm
+format = <label-tags> <label-layout> <label-floating> <label-title>
+# Path to dwm socket (default: /tmp/dwm.sock)
+socket-path = /tmp/dwm.sock
+
+# Left-click to view tag, right-click to toggle tag view
+enable-tags-click = true
+# Scroll to cycle between available tags
+enable-tags-scroll = true
+# If true and enable-tags-scroll = true, scrolling will view all tags regardless if occupied
+tags-scroll-empty = false
+# If true and enable-tags-scroll = true, scrolling will cycle through tags backwards
+tags-scroll-reverse = true
+# If true and enable-tags-scroll = true, wrap active tag when scrolling
+tags-scroll-wrap = true
+# Left-click to set secondary layout, right-click to switch to previous layout
+enable-layout-click = true
+# Scroll to cycle between available layouts
+enable-layout-scroll = false
+# Wrap when scrolling and reaching beginning/end of layouts
+layout-scroll-wrap = false
+# Reverse scroll direction
+layout-scroll-reverse = false
+
+# If enable-layout-click = true, clicking the layout symbol will switch to this layout
+secondary-layout-symbol = [M]
+
+# Separator in between shown tags
+# label-separator = -
+
+# Title of currently focused window
+# Available tokens:
+#   %title%
+label-title = %title%
+label-title-padding = 1
+label-title-foreground = ${colors.focused}
+label-title-maxlen = 50
+
+# Text to show when currently focused window is floating
+label-floating = ~
+
+# States: focused, unfocused, visible, urgent, empty
+# Available tokens:
+#   %name%
+
+# focused = Selected tag on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.focused}
+label-focused-underline= ${colors.line}
+label-focused-padding = 1
+
+# unfocused = Unselected tag on unselected monitor
+label-unfocused = %name%
+label-unfocused-padding = 1
+
+# visible = Unselected tag, but occupied tag on any monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${colors.alert}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+# urgent = Unselected tag with window that has urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.selected}
+label-urgent-foreground = ${colors.foreground}
+label-urgent-padding = 1
+
+# empty = Unselected and unoccupied tag
+# This can be set to an empty string to hide empty tags
+label-empty = %name%
+label-empty-background = ${colors.background}
+label-empty-padding = 1
+
+[module/date]
+type = internal/date
+label = %date%  
+date = %Y-%m-%d
+time = %H:%M:%S
+interval = 1
+
+[module/time]
+type = internal/date
+label = %time%
+time = %H:%M:%S
+interval = 1
+
+[module/kernel]
+type = custom/script
+exec = uname -r
+interval = 600
+format = "<label>"
+label = %output%
+
+[module/spotify]
+type = custom/script
+exec = playerctl metadata --format '{{ title }} - {{ artist }}'
+interval = 10
+format = "Now playing: <label> |"
+label = %output%
+
+[module/title]
+type = internal/xwindow
+format-background = ${colors.background}
+format-foreground = #f0c674
+format-padding = 1
+label-maxlen = 50
