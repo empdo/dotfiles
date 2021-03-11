@@ -123,7 +123,7 @@ alias make="/usr/bin/make -j24"
 alias pihubreplace="ssh pi@pihub -C '/home/pi/srv/replace.sh && exit'"
 alias pihub="ssh pi@pihub"
 alias git-complete-reset="~/.scripts/please_die_git.sh"
-
+alias neofetch='neofetch --source ~/.config/neofetch/duck.txt'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
