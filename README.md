@@ -28,3 +28,4 @@ use this to get the correct name of monitor:
 ~~~ sh
 $ xrandr -q | grep " connected" | cut -d ' ' -f1
 ~~~
+(https://user-images.githubusercontent.com/37713376/110790382-42e2b080-8271-11eb-8dde-c5365687e100.png)
