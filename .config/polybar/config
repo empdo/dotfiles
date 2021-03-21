@@ -1,7 +1,7 @@
 [settings]
 
 [colors]
-background = #0c0c0D
+background = #111015 
 foreground = #c5c8c6
 line = #bbb
 border = #bbb
@@ -44,7 +44,7 @@ module-margin = 1
 
 modules-left = dwm 
 #modules-center = 
-modules-right = spotify date time
+modules-right = spotify_mute spotify date time
 
 [bar/dp1]
 monitor = HDMI-0
@@ -179,3 +179,8 @@ format-background = ${colors.background}
 format-foreground = #f0c674
 format-padding = 1
 label-maxlen = 50
+
+[module/spotify_mute]
+type = custom/text
+content = +
+click-right = pactl set-sink-input-mute $(pactl list sink-inputs | grep -C 24 'application.process.binary = "spotify"' | cut -f 1 | grep -E "#([0-9]+)" -o | cut -d "#" -f 2) toggle

@@ -104,38 +104,10 @@ source $ZSH/oh-my-zsh.sh
 
 unsetopt nomatch
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias help="bash -c help"
-alias update-grub="sudo grub-mkconfig -o /boot/grub/grubcfg"
-alias vim="echo Use nvim instead && echo $@ > /dev/null"
 alias xcopy="xclip -selection c"
 alias xpaste="xclip -selection c -o"
-alias please="sudo"
 alias fucking="sudo"
 alias make="/usr/bin/make -j24"
-alias pihubreplace="ssh pi@pihub -C '/home/pi/srv/replace.sh && exit'"
-alias pihub="ssh pi@pihub"
-alias git-complete-reset="~/.scripts/please_die_git.sh"
 alias neofetch='neofetch --source ~/.config/neofetch/duck.txt'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-
-alias mccli-exec="ssh s1 -C 'mccli exec $@'"
-# kdesrc-build ##################################################
-
-## Add kdesrc-build to PATH
-export PATH="$HOME/kde/src/kdesrc-build:$PATH"
-
-## Run projects built with kdesrc-build
-function kdesrc-run
-{
-  source "$HOME/kde/build/$1/prefix.sh" && "$HOME/kde/usr/bin/$@"
-}
-#################################################################
