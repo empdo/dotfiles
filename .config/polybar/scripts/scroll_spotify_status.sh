@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#CREDIT: https://github.com/PrayagS/polybar-spotify :wq
+
 # see man zscroll for documentation of the following parameters
 zscroll -l 30 \
         --delay 0.1 \
