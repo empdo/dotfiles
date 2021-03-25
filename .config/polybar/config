@@ -41,6 +41,7 @@ foreground = ${colors.foreground}
 
 padding-left = 8
 padding-right = 8
+padding-top = 2
 module-margin = 1
 
 modules-left = dwm 

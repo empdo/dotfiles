@@ -13,6 +13,12 @@ call plug#end()
 
 let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-solargraph', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet']
 
+fu GetTerm()
+    terminal
+    wincmd x
+    res 40
+endfu
+
 
 let g:RelativeNumbers=0
 
@@ -51,6 +57,7 @@ nnoremap <S-TAB> :tabprevious<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+nmap <c-T> :call GetTerm()<cr>
 nmap <c-R> :call ToggleRelativeNumbers()<cr>
 
 function! ToggleRelativeNumbers()
