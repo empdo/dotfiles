@@ -13,13 +13,8 @@ call plug#end()
 
 let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-solargraph', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet']
 
-fu GetTerm()
-	below 7sp
-	terminal
-	NERDTree
-endfu
-
-let g:RelativeNumbers=0
+let g:RelativeNumbTermm=0
+let g:Term=0
 
 colorscheme sierra
 highlight LineNr ctermfg=grey ctermbg=NONE
@@ -68,6 +63,19 @@ function! ToggleRelativeNumbers()
         :set rnu
     endif
 endfunction
+
+function! GetTerm()
+    if g:Term
+		let g:term=0
+
+    else
+        let g:term=1
+	below 7sp
+	terminal
+	NERDTree
+    endif
+endfunction
+
 
 nnoremap <A-down> :m .+1<CR>==
 nnoremap <A-up> :m .-2<CR>==
