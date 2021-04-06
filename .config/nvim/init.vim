@@ -3,24 +3,18 @@ call plug#begin('~/.vim/plugged')
 	Plug 'neoclide/coc.nvim'
 	Plug 'tpope/vim-surround'
 	Plug 'tmsvg/pear-tree'
-	Plug 'weirongxu/coc-explorer'
+	Plug 'preservim/nerdtree'
 	Plug 'itchyny/lightline.vim'
 	Plug 'itchyny/vim-gitbranch'
-    Plug 'OmniSharp/omnisharp-vim'
+	Plug 'OmniSharp/omnisharp-vim'
 
 let g:deoplete#enable_at_startup = 1
 call plug#end()
 
 let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-solargraph', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet']
 
-fu GetTerm()
-    terminal
-    wincmd x
-    res 40
-endfu
-
-
-let g:RelativeNumbers=0
+let g:RelativeNumbTermm=0
+let g:Term=0
 
 colorscheme sierra
 highlight LineNr ctermfg=grey ctermbg=NONE
@@ -29,7 +23,7 @@ highlight Normal guibg=NONE ctermbg=NONE
 let g:leader = '\<space>'
 set hidden
 set wrap
-set encoding=utf-8
+set encoding=utf8
 set autoindent
 set ruler "show cursur att al time
 set number
@@ -70,6 +64,19 @@ function! ToggleRelativeNumbers()
     endif
 endfunction
 
+function! GetTerm()
+    if g:Term
+		let g:term=0
+
+    else
+        let g:term=1
+	below 7sp
+	terminal
+	NERDTree
+    endif
+endfunction
+
+
 nnoremap <A-down> :m .+1<CR>==
 nnoremap <A-up> :m .-2<CR>==
 inoremap <A-down> <Esc>:m .+1<CR>==gi
@@ -78,7 +85,7 @@ vnoremap <A-down> :m '>+1<CR>gv=gv
 vnoremap <A-up> :m '<-2<CR>gv=gv
 
 ":CocInstall coc-explorer  
-nmap <space>e :CocCommand explorer<CR>
+nmap <space>e :NERDTree<CR>
 
 "CocPrettier
-nmap <space>f :CocCommand prettier.formatFile<CR>
+nmap <space>f :CocCommand prettier.formatFile<CR>-
