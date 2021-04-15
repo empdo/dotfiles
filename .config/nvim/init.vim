@@ -25,7 +25,7 @@ set hidden
 set wrap
 set encoding=utf8
 set autoindent
-set ruler "show cursur att al time
+"set ruler "show cursur att al time
 set number
 set clipboard=unnamedplus "cp in and out
 set mouse-=a
