@@ -1,3 +1,5 @@
+source $HOME/.config/nvim/plug-config/signify.vim
+
 call plug#begin('~/.vim/plugged')
 	Plug 'rafi/awesome-vim-colorschemes'
 	Plug 'neoclide/coc.nvim'
@@ -10,6 +12,10 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 	Plug 'junegunn/fzf.vim'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'mhinz/vim-signify'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
+    Plug 'junegunn/gv.vim'
 
 let g:deoplete#enable_at_startup = 1
 call plug#end()
@@ -24,6 +30,7 @@ highlight LineNr ctermfg=grey ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
 
 let g:leader = '\<space>'
+let mapleader = " " " space as leader key
 set hidden
 set wrap
 set encoding=utf8
@@ -60,9 +67,32 @@ nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> :tabprevious<CR>
 
 "FZF"
-map <C-f> <Esc><Esc>:Files!<CR>
-inoremap <C-f> <Esc><Esc>:BLines!<CR>
-map <C-g> <Esc><Esc>:BCommits!<CR>
+map <leader>f <Esc><Esc>:Files!<CR>
+inoremap <leader>f <Esc><Esc>:BLines!<CR>
+map <leader>g <Esc><Esc>:BCommits!<CR>
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 "tabing
 vnoremap < <gv
@@ -101,7 +131,11 @@ vnoremap <A-down> :m '>+1<CR>gv=gv
 vnoremap <A-up> :m '<-2<CR>gv=gv
 
 ":CocInstall coc-explorer  
-nmap <space>e :NERDTree<CR>
+nmap <leader>e :NERDTree<CR>
 
 "CocPrettier
-nmap <space>f :CocCommand prettier.formatFile<CR>-
+nmap <leader>F :CocCommand prettier.formatFile<CR>-
+
+"Fugitive
+nmap <leader>gh  :GBrowse<CR>
+nmap <leader>G  :SignifyToggle<CR>
