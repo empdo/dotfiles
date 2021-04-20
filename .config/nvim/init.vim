@@ -92,11 +92,6 @@ function! GetTerm()
     endif
 endfunction
 
-let items = ['_']
-for item in items
-    exe "nnoremap pa".item." T".item."yt".item
-endfor
-
 nnoremap <A-down> :m .+1<CR>==
 nnoremap <A-up> :m .-2<CR>==
 inoremap <A-down> <Esc>:m .+1<CR>==gi
