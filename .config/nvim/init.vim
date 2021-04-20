@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'OmniSharp/omnisharp-vim'
 	Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 	Plug 'junegunn/fzf.vim'
+    Plug 'ryanoasis/vim-devicons'
 
 let g:deoplete#enable_at_startup = 1
 call plug#end()
