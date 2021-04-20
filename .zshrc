@@ -108,6 +108,6 @@ alias xcopy="xclip -selection c"
 alias xpaste="xclip -selection c -o"
 alias fucking="sudo"
 alias make="/usr/bin/make -j24"
-alias neofetch='neofetch --source ~/.config/neofetch/duck.txt'
+#alias neofetch='neofetch --source ~/.config/neofetch/duck.txt'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'

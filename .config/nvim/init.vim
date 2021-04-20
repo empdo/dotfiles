@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'itchyny/lightline.vim'
 	Plug 'itchyny/vim-gitbranch'
 	Plug 'OmniSharp/omnisharp-vim'
+	Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
+	Plug 'junegunn/fzf.vim'
 
 let g:deoplete#enable_at_startup = 1
 call plug#end()
@@ -25,12 +27,21 @@ set hidden
 set wrap
 set encoding=utf8
 set autoindent
+set rnu
+set nohlsearch
+set incsearch
+set hidden
 "set ruler "show cursur att al time
 set number
 set clipboard=unnamedplus "cp in and out
 set mouse-=a
-set softtabstop=4
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set scrolloff=8
 set colorcolumn=80
+set guicursor=
 
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
@@ -46,6 +57,11 @@ let g:lightline = {
 "switch beetwen buffers
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> :tabprevious<CR>
+
+"FZF"
+map <C-f> <Esc><Esc>:Files!<CR>
+inoremap <C-f> <Esc><Esc>:BLines!<CR>
+map <C-g> <Esc><Esc>:BCommits!<CR>
 
 "tabing
 vnoremap < <gv
@@ -76,6 +92,10 @@ function! GetTerm()
     endif
 endfunction
 
+let items = ['_']
+for item in items
+    exe "nnoremap pa".item." T".item."yt".item
+endfor
 
 nnoremap <A-down> :m .+1<CR>==
 nnoremap <A-up> :m .-2<CR>==
