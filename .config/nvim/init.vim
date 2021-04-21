@@ -1,5 +1,3 @@
-source $HOME/.config/nvim/plug-config/signify.vim
-
 call plug#begin('~/.vim/plugged')
 	Plug 'rafi/awesome-vim-colorschemes'
 	Plug 'neoclide/coc.nvim'
@@ -16,9 +14,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
+    Plug 'ThePrimeagen/vim-be-good'
+    Plug 'norcalli/nvim-colorizer.lua'
 
 let g:deoplete#enable_at_startup = 1
 call plug#end()
+
+set termguicolors
+
+source $HOME/.config/nvim/plug-config/signify.vim
+luafile  $HOME/.config/nvim/lua/plug-colorizer.lua
 
 let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-solargraph', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet']
 
@@ -28,6 +33,7 @@ let g:Term=0
 colorscheme sierra
 highlight LineNr ctermfg=grey ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
+
 
 let g:leader = '\<space>'
 let mapleader = " " " space as leader key
@@ -104,7 +110,7 @@ nmap <c-R> :call ToggleRelativeNumbers()<cr>
 function! ToggleRelativeNumbers()
     if g:RelativeNumbers
 		let g:RelativeNumbers=0
-		:set nornu
+	ke this	:set nornu
     else
         let g:RelativeNumbers=1
         :set rnu
@@ -139,3 +145,4 @@ nmap <leader>F :CocCommand prettier.formatFile<CR>-
 "Fugitive
 nmap <leader>gh  :GBrowse<CR>
 nmap <leader>G  :SignifyToggle<CR>
+
