@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/gv.vim'
     Plug 'ThePrimeagen/vim-be-good'
     Plug 'norcalli/nvim-colorizer.lua'
-
+set noruler
 let g:deoplete#enable_at_startup = 1
 call plug#end()
 
@@ -36,12 +36,13 @@ highlight Normal guibg=NONE ctermbg=NONE
 
 
 let g:leader = '\<space>'
-let mapleader = " " " space as leader key
+let mapleader = "" " space as leader key
 set hidden
-set wrap
 set encoding=utf8
 set autoindent
 set rnu
+set nowrap
+set noruler
 set nohlsearch
 set incsearch
 set hidden
@@ -54,7 +55,6 @@ set shiftwidth=4
 set expandtab
 set smartindent
 set scrolloff=8
-set colorcolumn=80
 set guicursor=
 
 let g:lightline = {
@@ -124,7 +124,7 @@ function! GetTerm()
     else
         let g:term=1
 	below 7sp
-	terminal
+	set norulerterminal
 	NERDTree
     endif
 endfunction
@@ -137,10 +137,10 @@ vnoremap <A-down> :m '>+1<CR>gv=gv
 vnoremap <A-up> :m '<-2<CR>gv=gv
 
 ":CocInstall coc-explorer  
-nmap <leader>e :NERDTree<CR>
+nmap <C-e> :NERDTree<CR>
 
 "CocPrettier
-nmap <leader>F :CocCommand prettier.formatFile<CR>-
+nmap <C-f> :CocCommand prettier.formatFile<CR>-
 
 "Fugitive
 nmap <leader>gh  :GBrowse<CR>
