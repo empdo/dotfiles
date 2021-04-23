@@ -2,10 +2,10 @@ export PATH=$HOME/.node_modules/bin:$PATH
 export npm_config_prefix=~/.node_modules
 export PATH=$PATH:$HOME/.yarn/bin:/home/emil/.local/bin:$HOME/.gem/ruby/2.7.0/bin
 
-export ZSH="/home/emil/.oh-my-zsh"
+export ZSH="/Users/emilessung/.oh-my-zsh"
 export EDITOR="nvim"
 
-ZSH_THEME="lamda-duck"
+ZSH_THEME="simple"
 
 # Enable auto correct!
 ENABLE_CORRECTION="true"

@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/gv.vim'
     Plug 'ThePrimeagen/vim-be-good'
     Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'gabrielelana/vim-markdown'
 set noruler
 let g:deoplete#enable_at_startup = 1
 call plug#end()
@@ -36,7 +37,7 @@ highlight Normal guibg=NONE ctermbg=NONE
 
 
 let g:leader = '\<space>'
-let mapleader = "" " space as leader key
+let mapleader = " " " space as leader key
 set hidden
 set encoding=utf8
 set autoindent
