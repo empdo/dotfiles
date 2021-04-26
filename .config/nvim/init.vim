@@ -68,6 +68,10 @@ let g:lightline = {
       \	    'gitbranch': 'gitbranch#name'
       \ },
       \ }
+      
+"Random stuff
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command Wq :execute ':silent w !sudo tee % > /dev/null' | :edit! | :q
 
 "switch beetwen buffers
 nnoremap <TAB> :tabnext<CR>
