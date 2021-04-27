@@ -29,7 +29,7 @@
 
     sort = yes
 
-    idle_threshold = 120
+    idle_threshold = 50
 
 
     font = SauceCodePro Nerd Font

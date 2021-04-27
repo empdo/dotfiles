@@ -2,7 +2,7 @@ export PATH=$HOME/.node_modules/bin:$PATH
 export npm_config_prefix=~/.node_modules
 export PATH=$PATH:$HOME/.yarn/bin:/home/emil/.local/bin:$HOME/.gem/ruby/2.7.0/bin
 
-export ZSH="/Users/emilessung/.oh-my-zsh"
+export ZSH="/home/emil/.oh-my-zsh"
 export EDITOR="nvim"
 
 ZSH_THEME="simple"
