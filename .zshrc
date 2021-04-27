@@ -5,7 +5,7 @@ export PATH=$PATH:$HOME/.yarn/bin:/home/emil/.local/bin:$HOME/.gem/ruby/2.7.0/bi
 export ZSH="/home/emil/.oh-my-zsh"
 export EDITOR="nvim"
 
-ZSH_THEME="simple"
+ZSH_THEME="lamda-duck"
 
 # Enable auto correct!
 ENABLE_CORRECTION="true"
