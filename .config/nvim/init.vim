@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ThePrimeagen/vim-be-good'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'gabrielelana/vim-markdown'
+    Plug 'lambdalisue/glyph-palette.vim'
 set noruler
 let g:deoplete#enable_at_startup = 1
 call plug#end()
@@ -133,6 +134,12 @@ function! GetTerm()
 	NERDTree
     endif
 endfunction
+
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+  autocmd FileType nerdtree,startify call glyph_palette#apply()
+augroup END
 
 nnoremap <A-down> :m .+1<CR>==
 nnoremap <A-up> :m .-2<CR>==
