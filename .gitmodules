@@ -1,3 +1,6 @@
 [submodule "dwm"]
 	path = dwm
 	url = https://github.com/empdo/dwm
+[submodule "/home/emil/dev/dmenu"]
+	path = /home/emil/dev/dmenu
+	url = https://github.com/empdo/dmenu

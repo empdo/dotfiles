@@ -253,3 +253,7 @@ format-background = ${colors.background}
 format-foreground = #f0c674
 format-padding = 1
 label-maxlen = 50
+
+[module/arch]
+type=custom/text
+content=
