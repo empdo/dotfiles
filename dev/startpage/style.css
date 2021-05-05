@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap");
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-family: "Source Code Pro", monospace;
+}
+
+body {
+  background-color: hsl(0, 8%, 5%);
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+}
+a {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+#ultraSwagContainer {
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-areas: "top" "bottom";
+  grid-template-rows: 1fr 2fr;
+}
+
+#swagContainer {
+  height: 60px;
+  width: 100%;
+  margin: 0 auto;
+
+  grid-area: top;
+  align-self: end;
+
+  display: flex;
+
+  /*border: 2px solid white;*/
+}
+
+#swagContainer > form {
+  display: inline-block;
+  background-color: hsl(0, 6%, 7%);
+  display: flex;
+  flex: 1;
+
+  justify-content: center;
+
+  width: 80%;
+  height: 100%;
+}
+
+#swagContainer input {
+  background-color: hsl(0, 6%, 7%);
+  color: white;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid white;
+
+  text-align: center;
+
+  width: 80%;
+  height: 70%;
+}
+
+#swagContainer svg {
+  align-self: center;
+  margin-left: 10px;
+  height: 70%;
+}
+
+#swagContainer svg:hover {
+  border-bottom: 2px solid white;
+}
+
+#googlestufflogo {
+  stroke: white;
+  stroke-width: 1.5px;
+}
+
+#coolContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 45px;
+
+  padding-top: 40px;
+  grid-area: bottom;
+  align-self: start;
+}
+
+#coolContainer > div {
+  background-color: hsl(0, 6%, 7%);
+  height: auto;
+  padding: 0;
+  /*border: 2px solid white;
+   */
+}
+
+#coolContainer > div > ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+#coolContainer a {
+  text-decoration: none;
+  color: white;
+}
+
+#coolContainer a:hover {
+  text-decoration: underline;
+}

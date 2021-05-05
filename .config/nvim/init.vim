@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'gabrielelana/vim-markdown'
     Plug 'lambdalisue/glyph-palette.vim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 set noruler
 let g:deoplete#enable_at_startup = 1
 call plug#end()
@@ -157,4 +158,7 @@ nmap <C-f> :CocCommand prettier.formatFile<CR>-
 "Fugitive
 nmap <leader>gh  :GBrowse<CR>
 nmap <leader>G  :SignifyToggle<CR>
+
+nmap <C-s> :MarkdownPreview<CR>
+nmap <C-p> :MarkdownPreviewStop<CR>
 
