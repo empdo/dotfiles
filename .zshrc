@@ -1,3 +1,5 @@
+neofetch
+
 export PATH=$HOME/.node_modules/bin:$PATH
 export npm_config_prefix=~/.node_modules
 export PATH=$PATH:$HOME/.yarn/bin:/home/emil/.local/bin:$HOME/.gem/ruby/2.7.0/bin
@@ -20,6 +22,8 @@ alias xpaste="xclip -selection c -o"
 alias fucking="sudo"
 alias make="/usr/bin/make -j24"
 alias v="nvim"
+alias ls="exa --icons --group-directories-first"
+alias lsa="exa --icons -a --group-directories-first"
 #alias neofetch='neofetch --source ~/.config/neofetch/duck.txt'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
