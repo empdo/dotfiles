@@ -22,7 +22,7 @@ alias xpaste="xclip -selection c -o"
 alias fucking="sudo"
 alias make="/usr/bin/make -j24"
 alias v="nvim"
-alias ls="exa --icons -lx --group-directories-first"
+alias ls="exa --icons -x --group-directories-first"
 alias lsa="exa --icons -xa --group-directories-first"
 #alias neofetch='neofetch --source ~/.config/neofetch/duck.txt'
 

@@ -52,8 +52,25 @@ radius = 5px
 line-size = 1
 linecolor = #fff
 
+tray-position = center
+
+tray-detached = false
+
+tray-maxsize = 16
+
+tray-transparent = true
+
+tray-background = ${root.background}
+
+tray-offset-x = 0
+tray-offset-y = 0
+
+tray-padding = 0
+
+tray-scale = 1.0
+
 modules-left = dwm 
-#modules-center = 
+modules-center = 
 modules-right = spotify spotify-prev spotify-play-pause spotify-next date time
 
 [bar/dp1]
@@ -80,7 +97,7 @@ padding-right = 8
 module-margin = 1
 
 modules-left = dwm 
-#modules-center = 
+modules-center = wlan
 modules-right = kernel mem cpu
 
 [bar/dp2]
@@ -105,6 +122,12 @@ module-margin = 1
 modules-left = dwm 
 #modules-center = 
 modules-right = date time
+
+[module/wlan]
+interface = stalonetray
+interval = 5
+label-connected = %{A1:nm-connection-editor:} [icon] %{A}
+label-disconnected = %{A1:nm-connection-editor:} [icon] Not Connected%{A}
 
 
 #MODULES
@@ -183,6 +206,7 @@ label-urgent-padding = 1
 label-empty = %name%
 label-empty-background = ${colors.background}
 label-empty-padding = 1
+
 
 [module/date]
 type = internal/date
