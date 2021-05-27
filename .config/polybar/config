@@ -71,7 +71,7 @@ tray-scale = 1.0
 
 modules-left = dwm 
 modules-center = 
-modules-right = spotify spotify-prev spotify-play-pause spotify-next date time
+modules-right = spotify spotify-prev spotify-play-pause spotify-next date time 
 
 [bar/dp1]
 monitor = HDMI-0
@@ -191,7 +191,7 @@ label-unfocused-padding = 1
 # visible = Unselected tag, but occupied tag on any monitor
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-foreground = ${colors.alert}
+label-visible-foreground = ${colors.focused}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
@@ -259,7 +259,7 @@ tail = true
 ; prefix symbol is shown before the text
 format-prefix = "阮 "
 format = <label>
-exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
+exec = ~/.config/polybar/scripts/get_spotify_status.sh
 
 [module/spotify-prev]
 type = custom/script
