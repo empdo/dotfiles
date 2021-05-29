@@ -1,9 +1,12 @@
 #!/bin/zsh
 
-array="nvim\nalactritty\n"
+array="qutebrowser\ndiscord-canary\nnvim\nalactritty\n"
 choice=$(echo -e "${array[@]}" | dmenu | cut -f 1)
 
 case "$choice" in
+  qutebrowser)  qutebrowser ;;
+  discord-canary) discord-canary ;;
+  auryo) auryo ;;
   nvim) nvim ~/.config/nvim/init.vim    ;;
   alacritty) nvim ~/.config/alacritty/alacritty.yml    ;;
 esac
