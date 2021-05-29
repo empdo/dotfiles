@@ -7,8 +7,8 @@ case "$choice" in
   qutebrowser)  qutebrowser ;;
   discord-canary) discord-canary ;;
   auryo) auryo ;;
-  nvim) nvim ~/.config/nvim/init.vim    ;;
-  alacritty) nvim ~/.config/alacritty/alacritty.yml    ;;
+  nvim) alacritty nvim ~/.config/nvim/init.vim    ;;
+  alacritty) alacritty nvim ~/.config/alacritty/alacritty.yml    ;;
 esac
 
 case "$choice[1]" in
