@@ -28,7 +28,7 @@ set termguicolors
 source $HOME/.config/nvim/plug-config/signify.vim
 luafile  $HOME/.config/nvim/lua/plug-colorizer.lua
 
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-solargraph', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet']
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet', 'coc-clangd']
 
 let g:RelativeNumbTermm=0
 let g:Term=0

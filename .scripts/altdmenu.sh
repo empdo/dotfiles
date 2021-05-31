@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-array="qutebrowser\ndiscord-canary\nnvim\nalactritty\n"
+array="qutebrowser\ndiscord-canary\nauryo\nnvim\nalactritty\n"
 choice=$(echo -e "${array[@]}" | dmenu | cut -f 1)
 
 case "$choice" in
