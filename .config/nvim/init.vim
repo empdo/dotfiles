@@ -39,7 +39,7 @@ highlight Normal guibg=NONE ctermbg=NONE
 
 
 let g:leader = '\<space>'
-let mapleader = " " " space as leader key
+let mapleader = "p" " space as leader key
 set hidden
 set encoding=utf8
 set autoindent

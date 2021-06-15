@@ -5,5 +5,7 @@ nitrogen --restore &
 
 picom --experimental-backends --respect-prop-shadow &
 
+xmodmap ~/.Xmodmap
+
 dunst &
 
