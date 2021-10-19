@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/gv.vim'
     Plug 'ThePrimeagen/vim-be-good'
     Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
     Plug 'gabrielelana/vim-markdown'
     Plug 'lambdalisue/glyph-palette.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -33,7 +34,7 @@ let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-sh', 'coc-py
 let g:RelativeNumbTermm=0
 let g:Term=0
 
-colorscheme sierra
+colorscheme deep-space
 highlight LineNr ctermfg=grey ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
 

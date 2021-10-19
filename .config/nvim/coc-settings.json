@@ -12,7 +12,7 @@
   },
    "explorer.icon.enableNerdfont": true,
 
-   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "js", "python"],
+   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "js", "python", "c"],
    "coc.source.OmniSharp.enable" : true,
    "coc.source.OmniSharp.triggerCharacters": ".",
     
