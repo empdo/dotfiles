@@ -39,8 +39,7 @@ highlight LineNr ctermfg=grey ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
 
 
-let g:leader = '\<space>'
-let mapleader = "p" " space as leader key
+let mapleader="\<Space>"
 set hidden
 set encoding=utf8
 set autoindent
@@ -81,9 +80,9 @@ nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> :tabprevious<CR>
 
 "FZF"
-map <leader>f <Esc><Esc>:Files!<CR>
-inoremap <leader>f <Esc><Esc>:BLines!<CR>
-map <leader>g <Esc><Esc>:BCommits!<CR>
+map <leader>f <Esc><Esc>:Files<CR>
+inoremap <leader>f <Esc><Esc>:BLines<CR>
+map <leader>g <Esc><Esc>:BCommits<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -154,7 +153,7 @@ vnoremap <A-up> :m '<-2<CR>gv=gv
 nmap <C-e> :NERDTree<CR>
 
 "CocPrettier
-nmap <C-f> :CocCommand prettier.formatFile<CR>-
+"nmap <C-f> :CocCommand prettier.formatFile<CR>-
 
 "Fugitive
 nmap <leader>gh  :GBrowse<CR>
