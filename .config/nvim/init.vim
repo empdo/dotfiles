@@ -29,7 +29,8 @@ set termguicolors
 source $HOME/.config/nvim/plug-config/signify.vim
 luafile  $HOME/.config/nvim/lua/plug-colorizer.lua
 
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet', 'coc-clangd']
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet', 'coc-clangd', 'coc-flutter']
+
 
 let g:RelativeNumbTermm=0
 let g:Term=0
@@ -148,6 +149,11 @@ inoremap <A-down> <Esc>:m .+1<CR>==gi
 inoremap <A-up> <Esc>:m .-2<CR>==gi
 vnoremap <A-down> :m '>+1<CR>gv=gv
 vnoremap <A-up> :m '<-2<CR>gv=gv
+
+"COC
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-@> coc#refresh()
+
 
 ":CocInstall coc-explorer  
 nmap <C-e> :NERDTree<CR>

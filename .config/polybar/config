@@ -8,7 +8,7 @@ border = #bbb
 accent = #434d5e
 accent2 = #637291
 selected = #81a2be
-focused = #8c9440
+focused = #f62e60
 
 black = #282a2e
 red = #0xa54242
