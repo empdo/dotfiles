@@ -11,8 +11,9 @@
 
   },
    "explorer.icon.enableNerdfont": true,
-
-   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "js", "python", "c"],
+   "diagnostic.virtualText": true,
+   "diagnostic.virtualTextCurrentLineOnly": false,
+   "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "js", "python", "c", "typescript", "typescriptreact"],
    "coc.source.OmniSharp.enable" : true,
    "coc.source.OmniSharp.triggerCharacters": ".",
     

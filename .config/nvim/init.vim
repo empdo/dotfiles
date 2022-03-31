@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'rafi/awesome-vim-colorschemes'
 	Plug 'neoclide/coc.nvim'
 	Plug 'tpope/vim-surround'
+    Plug 'drewtempelmeyer/palenight.vim'
 	Plug 'tmsvg/pear-tree'
 	Plug 'preservim/nerdtree'
 	Plug 'itchyny/lightline.vim'
@@ -58,7 +59,6 @@ highlight LineNr ctermfg=grey ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
 
 
-let mapleader="\<Space>"
 set hidden
 set encoding=utf8
 set autoindent
