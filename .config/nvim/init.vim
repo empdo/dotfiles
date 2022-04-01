@@ -39,6 +39,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'gabrielelana/vim-markdown'
     Plug 'lambdalisue/glyph-palette.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'ThePrimeagen/harpoon'
 set noruler
 let g:deoplete#enable_at_startup = 1
 call plug#end()
@@ -57,7 +59,6 @@ let g:Term=0
 colorscheme deep-space
 highlight LineNr ctermfg=grey ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
-
 
 set hidden
 set encoding=utf8
@@ -94,14 +95,19 @@ let g:lightline = {
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command Wq :execute ':silent w !sudo tee % > /dev/null' | :edit! | :q
 
+nnoremap <S-d> :call CocActionAsync('jumpDefinition')<CR>
+
+nnoremap <C-h> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <C-a> :lua require("harpoon.mark").add_file()<CR>
+
 "switch beetwen buffers
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> :tabprevious<CR>
 
 "FZF"
-map <leader>f <Esc><Esc>:Files<CR>
-inoremap <leader>f <Esc><Esc>:BLines<CR>
-map <leader>g <Esc><Esc>:BCommits<CR>
+map <S-f> <Esc><Esc>:Files<CR>
+inoremap <S-f> <Esc><Esc>:BLines<CR>
+map <S-g> <Esc><Esc>:BCommits<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
