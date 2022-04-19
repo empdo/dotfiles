@@ -18,7 +18,7 @@
 "                    .       
 call plug#begin('~/.vim/plugged')
 	Plug 'rafi/awesome-vim-colorschemes'
-	Plug 'neoclide/coc.nvim'
+	Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 	Plug 'tpope/vim-surround'
 	Plug 'tmsvg/pear-tree'
 	Plug 'preservim/nerdtree'
@@ -47,7 +47,7 @@ set termguicolors
 source $HOME/.config/nvim/plug-config/signify.vim
 luafile  $HOME/.config/nvim/lua/plug-colorizer.lua
 
-let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet', 'coc-clangd', 'coc-flutter']
+let g:coc_global_extensions = ['coc-prettier', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-emmet', 'coc-clangd', 'coc-flutter', 'coc-sumneko-lua']
 
 
 let g:RelativeNumbTermm=0
@@ -58,7 +58,6 @@ highlight LineNr ctermfg=grey ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
 
 
-let mapleader="\<Space>"
 set hidden
 set encoding=utf8
 set autoindent

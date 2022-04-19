@@ -8,4 +8,6 @@ xmodmap ~/.Xmodmap
 
 dunst &
 
-discord &
+easyeffects --gapplication-service &
+
+discord-canary &
