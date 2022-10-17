@@ -23,6 +23,7 @@ alias xpaste="xclip -selection c -o"
 alias fucking="sudo"
 alias make="/usr/bin/make -j24"
 alias v="nvim"
-#alias neofetch='neofetch --source ~/.config/neofetch/duck.txt'
+alias ls="exa --icons -x --group-directories-first"
+alias lsa="exa --icons -xa --group-directories-first"
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'

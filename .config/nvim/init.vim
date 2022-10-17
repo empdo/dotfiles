@@ -1,25 +1,8 @@
-"    ##############..... ##############   
-"    ##############......##############   
-"      ##########..........##########     
-"      ##########........##########       
-"      ##########.......##########        
-"      ##########.....##########..        
-"      ##########....##########.....      
-"    ..##########..##########.........    
-"  ....##########.#########.............  
-"    ..################JJJ............    
-"      ################.............      
-"      ##############.JJJ.JJJJJJJJJJ      
-"      ############...JJ...JJ..JJ  JJ     
-"      ##########....JJ...JJ..JJ  JJ      
-"      ########......JJJ..JJJ JJJ JJJ     
-"      ######    .........                
-"                  .....                  
-"                    .       
 call plug#begin('~/.vim/plugged')
 	Plug 'rafi/awesome-vim-colorschemes'
 	Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 	Plug 'tpope/vim-surround'
+    Plug 'drewtempelmeyer/palenight.vim'
 	Plug 'tmsvg/pear-tree'
 	Plug 'preservim/nerdtree'
 	Plug 'itchyny/lightline.vim'
@@ -38,9 +21,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'gabrielelana/vim-markdown'
     Plug 'lambdalisue/glyph-palette.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'ThePrimeagen/harpoon'
+    Plug 'github/copilot.vim'
+    Plug 'lervag/vimtex'
+call plug#end()
 set noruler
 let g:deoplete#enable_at_startup = 1
-call plug#end()
 
 set termguicolors
 
@@ -56,7 +43,6 @@ let g:Term=0
 colorscheme deep-space
 highlight LineNr ctermfg=grey ctermbg=NONE
 highlight Normal guibg=NONE ctermbg=NONE
-
 
 set hidden
 set encoding=utf8
@@ -93,14 +79,18 @@ let g:lightline = {
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command Wq :execute ':silent w !sudo tee % > /dev/null' | :edit! | :q
 
+nnoremap <S-d> :call CocActionAsync('jumpDefinition')<CR>
+
+nnoremap <C-h> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <C-a> :lua require("harpoon.mark").add_file()<CR>
+
 "switch beetwen buffers
 nnoremap <TAB> :tabnext<CR>
 nnoremap <S-TAB> :tabprevious<CR>
 
 "FZF"
-map <leader>f <Esc><Esc>:Files<CR>
-inoremap <leader>f <Esc><Esc>:BLines<CR>
-map <leader>g <Esc><Esc>:BCommits<CR>
+"map <S-f> <Esc><Esc>:Files<CR>
+"inoremap <S-f> <Esc><Esc>:BLines<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -130,7 +120,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 nmap <c-T> :call GetTerm()<cr>
-nmap <c-R> :call ToggleRelativeNumbers()<cr>
+"nmap <c-R> :call ToggleRelativeNumbers()<cr>
 
 function! ToggleRelativeNumbers()
     if g:RelativeNumbers
@@ -179,9 +169,22 @@ nmap <C-e> :NERDTree<CR>
 "nmap <C-f> :CocCommand prettier.formatFile<CR>-
 
 "Fugitive
-nmap <leader>gh  :GBrowse<CR>
-nmap <leader>G  :SignifyToggle<CR>
+"nmap <leader>gh  :GBrowse<CR>
+"nmap <leader>G  :SignifyToggle<CR>
 
-nmap <C-s> :MarkdownPreview<CR>
-nmap <C-p> :MarkdownPreviewStop<CR>
 
+" This is necessary for VimTeX to load properly. The "indent" is optional.
+" Note that most plugin managers will do this automatically.
+filetype plugin indent on
+
+" This enables Vim's and neovim's syntax-related features. Without this, some
+" VimTeX features will not work (see ":help vimtex-requirements" for more
+" info).
+syntax enable
+
+let g:vimtex_view_method = 'zathura'
+
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+let maplocalleader = ","
