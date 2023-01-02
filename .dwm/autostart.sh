@@ -8,6 +8,7 @@ xmodmap ~/.Xmodmap
 
 dunst &
 
+~/.config/polybar/launch
+
 easyeffects --gapplication-service &
 
-discord-canary &

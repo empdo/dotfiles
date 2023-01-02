@@ -1,7 +1,27 @@
-include-file = ~/.config/polybar/colours
-include-file = ~/.config/polybar/decor
 include-file = ~/.config/polybar/modules
 include-file = ~/.config/polybar/system
+
+[colour]
+bg0 = #120d0d
+bg1 = #120d0d
+bg2 = #120d0d
+fg1 = #ebdbb2
+fg2 = #77ebdbb2
+line = #bbb
+border = #bbb
+accent = #434d5e
+accent2 = #637291
+selected = #81a2be
+focused = #f0c674
+
+black = #32344a
+red = #f7768c
+green = #9ece6a
+yellow = #e0af68
+blue = #aabbff
+magenta = #ad8ee6
+cyan = #449dab
+white = #787c99
 
 [bar/dp1]
 
@@ -11,27 +31,21 @@ monitor-strict = false
 
 enable-ipc = true
 
-bottom = false
-radius-top = 0
-radius-bottom = 0
+bottom = true
 
 width = 100%
-height = 25
-fixed-center = true
+height = 32
+padding-left = 1
+padding-right = 1
+module-margin = 1
 
-background = ${colour.tp}
+background = ${colour.bg1}
 foreground = ${colour.fg0}
 
 line-size = 2
 line-color = ${colour.red}
 
-border-size = 6
-border-color = ${colour.tp}
-
 padding = 0
-
-module-margin-left = 0
-module-margin-right = 0
 
 font-0 = "SauceCodePro Nerd Font:pixelsize=9;1"
 font-1 = "SauceCodePro Nerd Font:pixelsize=12;4"
@@ -39,24 +53,9 @@ font-2 = "SauceCodePro Nerd Font:pixelsize=16;4"
 font-3 = "SauceCodePro Nerd Font:pixelsize=18;4"
 
 ;MODULES
-modules-left = spacing2 YLD RD GPL volume GPL wlan GPL bluetooth GRD spacing
-modules-center = spacing GLD bspwm GRD spacing 
-modules-right = GLD cpu-temp GPL memory GPL BLD filesystem BRD spacing2 GLD date GPL BLD time BRD spacing
-
-;custom tray
-tray-position = left
-tray-detached = true
-tray-maxsize = 16
-tray-background = ${colour.bg1} 
-tray-offset-x = 54
-tray-offset-y = 0
-tray-padding = 2
-tray-scale = 1.0
-
-override-redirect = false
-
-cursor-click = 
-cursor-scroll = 
+modules-left = launcher volume 
+modules-center = bspwm 
+modules-right = cpu-temp memory filesystem date time 
 
 [bar/dp0]
 
@@ -67,27 +66,18 @@ wm-restack = bspwm
 
 enable-ipc = true
 
-bottom = false
-radius-top = 0
-radius-bottom = 0
+bottom = true
 
-width = 100%
-height = 25
-fixed-center = true
-
-background = ${colour.tp}
+background = ${colour.bg1}
 foreground = ${colour.fg0}
 
 line-size = 2
-line-color = ${colour.red}
 
-border-size = 6
-border-color = ${colour.tp}
-
-padding = 0
-
-module-margin-left = 0
-module-margin-right = 0
+width = 100%
+height = 32
+padding-left = 1
+padding-right = 1
+module-margin = 1
 
 font-0 = "SauceCodePro Nerd Font:pixelsize=9;1"
 font-1 = "SauceCodePro Nerd Font:pixelsize=12;4"
@@ -95,24 +85,9 @@ font-2 = "SauceCodePro Nerd Font:pixelsize=17;4"
 font-3 = "SauceCodePro Nerd Font:pixelsize=18;4"
 
 ;MODULES
-modules-left = YLD launcher RD GPL spacing1 GRD spacing2 YLD dwm1 RD GPL battery GPL volume GPL wlan GPL bluetooth GRD spacing
-modules-center = spacing GLD bspwm GRD spacing 
-modules-right = GLD cpu-temp GPL memory GPL BLD filesystem BRD spacing2 GLD date GPL BLD time BRD spacing
-
-;custom tray
-tray-position = left
-tray-detached = true
-tray-maxsize = 16
-tray-background = ${colour.bg1} 
-tray-offset-x = 54
-tray-offset-y = 0
-tray-padding = 2
-tray-scale = 1.0
-
-override-redirect = false
-
-cursor-click = 
-cursor-scroll = 
+modules-left = launcher volume 
+modules-center = bspwm 
+modules-right = cpu-temp memory filesystem date time 
 
 
 [module/bspwm]

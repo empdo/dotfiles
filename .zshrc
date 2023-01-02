@@ -1,6 +1,6 @@
 export PATH=$HOME/.node_modules/bin:$PATH
 export npm_config_prefix=~/.node_modules
-export PATH=$PATH:$HOME/.yarn/bin:/home/emil/.local/bin:$HOME/.gem/ruby/2.7.0/bin
+export PATH=$PATH:$HOME/.yarn/bin:/home/emil/.local/bin:$HOME/.gem/ruby/2.7.0/bin:/sbin/nvim
 
 export JAVA_HOME='/usr/lib/jvm/java-16-openjdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
