@@ -54,7 +54,7 @@ font-3 = "SauceCodePro Nerd Font:pixelsize=18;4"
 
 ;MODULES
 modules-left = launcher volume 
-modules-center = bspwm 
+modules-center = dwm
 modules-right = cpu-temp memory filesystem date time 
 
 [bar/dp0]
@@ -62,7 +62,7 @@ modules-right = cpu-temp memory filesystem date time
 monitor = DP-0
 monitor-fallback =
 monitor-strict = false
-wm-restack = bspwm
+wm-restack = dwm
 
 enable-ipc = true
 
@@ -219,90 +219,4 @@ margin-top = 0
 margin-bottom = 0
 
 ; vim:ft=dosini
-
-[module/dwm1]
-type = internal/dwm
-format = <label-layout>
-format-font = 2
-; (removed from format =) <label-title> <label-layout> <label-floating> 
-; Path to dwm socket (default: /tmp/dwm.sock)
-; socket-path = /tmp/dwm.sock
-
-; Left-click to view tag, right-click to toggle tag view
-enable-tags-click = false
-; Scroll to cycle between available tags
-enable-tags-scroll = false
-; If true and enable-tags-scroll = true, scrolling will view all tags regardless if occupied
-tags-scroll-empty = false
-; If true and enable-tags-scroll = true, scrolling will cycle through tags backwards
-tags-scroll-reverse = false
-; If true and enable-tags-scroll = true, wrap active tag when scrolling
-tags-scroll-wrap = false
-; Left-click to set secondary layout, right-click to switch to previous layout
-enable-layout-click = false
-; Scroll to cycle between available layouts
-enable-layout-scroll = false
-; Wrap when scrolling and reaching begining/end of layouts
-layout-scroll-wrap = false
-; Reverse scroll direction
-layout-scroll-reverse = false
-
-; If enable-layout-click = true, clicking the layout symbol will switch to this layout
-secondary-layout-symbol = [M]
-
-; Separator in between shown tags
- label-separator =
-
-; Title of currently focused window
-; Available tokens:
-;   %title%
-label-title = %title%
-label-title-padding = 1
-label-title-forefround = ${colour.red}
-label-title-maxlen = 30
-
-; Symbol of current layout
-; Available tokens:
-;   %symbol%
-label-layout = %symbol%
-label-layout-padding = 1
-label-layout-foreground = ${colour.bg0}
-label-layout-background = ${colour.red}
-
-; Text to show when currently focused window is floating
-label-floating = F
-
-; States: focused, unfocused, visible, urgent, empty
-; Available tokens:
-;   %name%
-
-; focused = Selected tag on focused monitor
-label-focused = %name%
-label-focused-background = ${colour.red}
-label-focused-foreground = ${colour.red}
-label-focused-underline= ${colour.red}
-label-focused-padding = 1
-
-; unfocused = Unselected tag on unselected monitor
-label-unfocused = %name%
-label-unfocused-padding = 1
-
-; visible = Unselected tag, but occupied tag on any monitor
-label-visible = %name%
-label-visible-background = ${colour.red}
-label-visible-foreground = ${colour.red}
-label-visible-underline = ${colour.red}
-label-visible-padding = 1
-
-; urgent = Unselected tag with window that has urgency hint set
-label-urgent = %name%
-label-urgent-background = ${colour.red}
-label-urgent-padding = 1
-
-; empty = Unselected and unoccupied tag
-; This can be set to an empty string to hide empty tags
-label-empty = %name%
-label-empty-background = ${colour.red}
-label-empty-padding = 1
-
 
