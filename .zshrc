@@ -25,5 +25,7 @@ alias make="/usr/bin/make -j24"
 alias v="nvim"
 alias ls="exa --icons -x --group-directories-first"
 alias lsa="exa --icons -xa --group-directories-first"
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias й='setxkbmap se'

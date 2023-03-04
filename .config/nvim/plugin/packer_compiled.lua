@@ -199,6 +199,11 @@ _G.packer_plugins = {
     path = "/home/emil/.local/share/nvim/site/pack/packer/start/vim-tomorrow-theme",
     url = "https://github.com/jsit/vim-tomorrow-theme"
   },
+  vimtex = {
+    loaded = true,
+    path = "/home/emil/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/home/emil/.local/share/nvim/site/pack/packer/start/which-key.nvim",
