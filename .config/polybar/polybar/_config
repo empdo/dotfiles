@@ -1,0 +1,318 @@
+[settings]
+
+[colors]
+background = #1b1b1f
+foreground = #c5c8c6
+line = #bbb
+border = #bbb
+accent = #434d5e
+accent2 = #637291
+selected = #81a2be
+focused = #f62e60
+
+black = #282a2e
+red = #0xa54242
+green = #0x8c9440
+yellow = #0xde935f
+blue = #0x5f819d
+magenta = #0x85678f
+cyan = #0x5e8d87
+white = #0x707880
+
+[global/wm]
+margin-top = 20
+margin-bottom = 0
+
+[bar/dp0]
+monitor = DP-0
+enable-ipc = true
+
+font-0 = "SauceCodePro Nerd Font:pixelsize=9#1"
+
+override-redirect = false
+
+width = 100%
+height = 32
+
+bottom = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 8
+padding-right = 8
+padding-top = 10
+module-margin = 1
+
+offset-x = 0
+offset-y = 0
+
+radius = 0px
+
+line-size = 1
+linecolor = #fff
+
+tray-position = center
+
+tray-detached = false
+
+tray-maxsize = 16
+
+tray-transparent = true
+
+tray-background = ${root.background}
+
+tray-offset-x = 0
+tray-offset-y = 0
+
+tray-padding = 0
+
+tray-scale = 1.0
+
+modules-left = bspwm
+modules-center = 
+modules-right = spotify spotify-prev spotify-play-pause spotify-next date time 
+
+[bar/dp1]
+monitor = HDMI-1
+
+font-0 = "SauceCodePro Nerd Font:pixelsize=9#1"
+
+override-redirect = false
+
+width = 100%
+height = 32
+
+offset-x = 0%
+offset-y = 0
+radius = 0px
+
+bottom = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 8
+padding-right = 8
+module-margin = 1
+
+modules-left = bspwm
+modules-center = wlan
+modules-right = kernel mem cpu
+
+[bar/dp2]
+monitor = HDMI-0
+
+font-0 = "SauceCodePro Nerd Font:pixelsize=9#1"
+
+override-redirect = false
+
+width = 100%
+height = 21
+
+bottom = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 8
+padding-right = 8
+module-margin = 1
+
+modules-left = bspwm
+#modules-center = 
+modules-right = date time
+
+[module/wlan]
+interface = stalonetray
+interval = 5
+label-connected = %{A1:nm-connection-editor:} [icon] %{A}
+label-disconnected = %{A1:nm-connection-editor:} [icon] Not Connected%{A}
+
+
+#MODULES
+[module/dwm]
+type = internal/dwm
+format = <label-tags> <label-layout> <label-floating> <label-title>
+# Path to dwm socket (default: /tmp/dwm.sock)
+socket-path = /tmp/dwm.sock
+
+# Left-click to view tag, right-click to toggle tag view
+enable-tags-click = true
+# Scroll to cycle between available tags
+enable-tags-scroll = true
+# If true and enable-tags-scroll = true, scrolling will view all tags regardless if occupied
+tags-scroll-empty = false
+# If true and enable-tags-scroll = true, scrolling will cycle through tags backwards
+tags-scroll-reverse = true
+# If true and enable-tags-scroll = true, wrap active tag when scrolling
+tags-scroll-wrap = true
+# Left-click to set secondary layout, right-click to switch to previous layout
+enable-layout-click = true
+# Scroll to cycle between available layouts
+enable-layout-scroll = false
+# Wrap when scrolling and reaching beginning/end of layouts
+layout-scroll-wrap = false
+# Reverse scroll direction
+layout-scroll-reverse = false
+
+# If enable-layout-click = true, clicking the layout symbol will switch to this layout
+secondary-layout-symbol = [M]
+
+# Separator in between shown tags
+# label-separator = -
+
+# Title of currently focused window
+# Available tokens:
+#   %title%
+label-title = %title%
+label-title-padding = 1
+label-title-foreground = ${colors.focused}
+label-title-maxlen = 50
+
+# Text to show when currently focused window is floating
+label-floating = ~
+
+# States: focused, unfocused, visible, urgent, empty
+# Available tokens:
+#   %name%
+
+# focused = Selected tag on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.focused}
+label-focused-underline= ${colors.line}
+label-focused-padding = 1
+
+# unfocused = Unselected tag on unselected monitor
+llineabel-unfocused = %name%
+label-unfocused-padding = 1
+
+# visible = Unselected tag, but occupied tag on any monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${colors.focused}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+# urgent = Unselected tag with window that has urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.selected}
+label-urgent-foreground = ${colors.foreground}
+label-urgent-padding = 1
+
+# empty = Unselected and unoccupied tag
+# This can be set to an empty string to hide empty tags
+label-empty = %name%
+label-empty-background = ${colors.background}
+label-empty-padding = 1
+
+
+[module/date]
+type = internal/date
+label = %date%  
+date = %Y-%m-%d
+time = %H:%M:%S
+interval = 1
+
+[module/time]
+type = internal/date
+label = %time%
+time = %H:%M:%S
+interval = 1
+
+[module/kernel]
+type = custom/script
+exec = uname -r
+interval = 600
+format = "<label>"
+label = %output%
+
+[module/mem]
+type = internal/memory
+
+interval = 3
+
+format = <label>
+format-prefix = 
+format-background = ${color.shade6}
+format-foreground = ${color.fg-alt}
+format-padding = 2
+
+label = "Mem: %mb_used%"
+
+[module/cpu]
+type = internal/cpu
+
+interval = 0.5
+
+format = <label>
+format-background = ${color.mf}
+format-foreground = ${color.fg}
+format-padding = 2
+
+label = Cpu: %{A1:$TERMINAL -e htop >/dev/null 2>&1 &:}%percentage%%%{A}
+
+[module/spotify]
+type = custom/script
+tail = true
+; prefix symbol is shown before the text
+format-prefix = "阮 "
+format = <label>
+interval = 1
+exec = ~/.config/polybar/scripts/get_spotify_status.sh
+
+[module/spotify-prev]
+type = custom/script
+exec = echo "玲"
+format = <label>
+click-left = playerctl previous spotify
+
+[module/spotify-play-pause]
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = echo "契"
+initial = 1
+click-left = playerctl play-pause spotify
+
+[module/spotify-next]
+type = custom/script
+exec = echo "怜"
+format = <label>
+click-left = playerctl next spotify
+
+[module/title]
+type = internal/xwindow
+format-background = ${colors.background}
+format-foreground = #f0c674
+format-padding = 1
+label-maxlen = 50
+
+[module/arch]
+type=custom/text
+content=
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-underline= ${colors.focused}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-foreground = ${colors.focused}
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.focused}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+
+pin-workspaces = true
+
+; Separator in between workspaces
+; label-separator = |
